@@ -15,8 +15,8 @@ class kernel_encoder(nn.Module):
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x, y):
-
-        out = self.ln1(x+y)
+        data_in = torch.cat((x,y),1)
+        out = self.ln1(data_in)
         out = self.relu1(out)
         out = self.ln2(out)
         out = self.relu2(out)
